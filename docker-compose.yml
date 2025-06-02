@@ -1,0 +1,25 @@
+services:
+  db:
+    image: pgvector/pgvector:pg17
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_DB: geo
+    # ports:
+    #   - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+
+  web:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      POSTGRES_DSN: postgres://postgres@db:5432/geo
+    volumes:
+      - .env:/app/.env
+
+volumes:
+  pgdata:

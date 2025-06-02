@@ -1,0 +1,15 @@
+[project]
+name = "text-to-sql-demo"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pgai",
+    "psycopg>=3.2.9",
+    "python-dotenv>=1.1.0",
+    "quart>=0.20.0",
+]
+
+[tool.uv.sources]
+pgai = { git = "https://github.com/timescale/pgai", subdirectory = "projects/pgai" }

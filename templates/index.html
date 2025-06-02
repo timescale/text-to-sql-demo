@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to SQL Demo</title>
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <!-- | <a href="/semantic-catalog">Semantic Catalog</a> -->
+    </nav>
+    <hr>
+    <h1>Text to SQL Demo</h1>
+    <label for="question">Enter your question:</label><br>
+    <textarea id="question" name="question" rows="3" cols="60" placeholder="Type your question here"></textarea>
+    <br>
+    <button id="submit-btn" type="button">Submit</button>
+    <br><br>
+    <label for="sql-output">Generated SQL:</label><br>
+    <textarea id="sql-output" name="sql-output" rows="5" cols="60" readonly></textarea>
+    <br><br>
+    <label>Query Results:</label><br>
+    <div id="results-table-error"></div>
+    <table id="results-table" style="border: 1px solid black;">
+        <thead></thead>
+        <tbody></tbody>
+    </table>
+</body>
+</html>
